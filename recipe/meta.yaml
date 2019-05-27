@@ -23,7 +23,7 @@ requirements:
     - pip
     - cython >=0.20
     - numpy >=1.8
-    - neuron >=7.6.7=mpi*
+    - neuron =*=mpi_*
   run:
     - python
     - setuptools
@@ -32,7 +32,7 @@ requirements:
     - scipy >=0.14
     - h5py >=2.5
     - mpi4py >=1.2
-    - neuron >=7.6.7=mpi*
+    - neuron =*=mpi_*
 
 test:
   requires:
