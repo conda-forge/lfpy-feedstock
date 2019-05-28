@@ -3,7 +3,7 @@
 {% set build = 1 %}
 
 # mpi must be defined for conda-smithy lint
-{% set mpi = mpi %}
+{% set mpi = 'mpich' %}
 
 package:
   name: {{ name | lower }}
