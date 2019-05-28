@@ -3,7 +3,7 @@
 {% set build = 1 %}
 
 # mpi must be defined for conda-smithy lint
-{% set mpi = 'mpich' %}
+{% set mpi = mpi %}
 
 package:
   name: {{ name | lower }}
@@ -16,6 +16,7 @@ source:
 build:
   number: {{ build }}
   {% set mpi_prefix = "mpi_" + mpi %}
+  string: "{{ mpi_prefix }}_py{{ py }}h{{ PKG_HASH }}_{{ build }}"
   script: "{{PYTHON}} -m pip install . --no-deps -vv"
   skip: true  # [win]
 
@@ -24,10 +25,8 @@ requirements:
     - {{ compiler('c') }}
   host:
     - python
-    - pip
     - cython >=0.20
     - numpy >=1.8
-    - {{ mpi }}
     - neuron * {{ mpi_prefix }}_*
   run:
     - python
@@ -37,8 +36,7 @@ requirements:
     - scipy >=0.14
     - h5py >=2.5
     - mpi4py >=1.2
-    - {{ mpi }}
-    - neuron * {{ mpi_prefix }}_*
+    - neuron
 
 test:
   requires:
