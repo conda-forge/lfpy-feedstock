@@ -18,7 +18,7 @@ source:
 
 build:
   number: {{ build }}
-  {% set mpi_prefix = "mpi_" + mpi %}
+  {% set mpi_prefix = "mpi_" + mpi %} # use mpi_mpich_*` neuron variant
   string: "{{ mpi_prefix }}_py{{ py }}h{{ PKG_HASH }}_{{ build }}"
   script: "{{PYTHON}} -m pip install . --no-deps -vv"
   skip: true  # [win]
