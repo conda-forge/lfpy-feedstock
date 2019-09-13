@@ -42,7 +42,6 @@ requirements:
     - mpi4py >=1.2
     - {{ mpi }}
     - neuron >=7.6.7 {{ mpi_prefix }}_*
-    - readline >=8
 
 test:
   requires:
