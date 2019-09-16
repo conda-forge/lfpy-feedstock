@@ -1,12 +1,12 @@
 {% set name = 'LFPy' %}
-{% set version = "2.0.2" %}
+{% set version = "2.0.3" %}
 {% set build = 2 %}
 
-# mpi must be defined for conda-smithy lint
-{% if not mpi %}
-# conda-smithy misbehaves if mpi is unset
-{% set mpi = 'mpich' %}
-{% endif %}
+## mpi must be defined for conda-smithy lint
+# {% if not mpi %}
+## conda-smithy misbehaves if mpi is unset
+# {% set mpi = 'mpich' %}
+# {% endif %}
 
 package:
   name: {{ name | lower }}
@@ -14,11 +14,11 @@ package:
 
 source:
   url: https://pypi.io/packages/source/l/lfpy/{{name}}-{{ version }}.tar.gz
-  sha256: ab5103f6fd5fc9fb4005e65033a98d9d67f9ace4bc4b9be6c3462eab65539698
+  sha256: 32fa038917d11ecf286b676cf6cd772228ee0fa9c0ddebb5f8c5c7adb74c3228
 
 build:
   number: {{ build }}
-  {% set mpi_prefix = "mpi_" + mpi %} # use mpi_mpich_*` neuron variant
+  {% set mpi_prefix = "mpi" %} # use mpi_*` neuron variant
   string: "{{ mpi_prefix }}_py{{ py }}h{{ PKG_HASH }}_{{ build }}"
   script: "{{PYTHON}} -m pip install . --no-deps -vv"
   skip: true  # [win]
@@ -48,7 +48,7 @@ test:
     # test with mpich instead of openmpi
     # mpi4py with openmpi doesn't import on CI
     # without extra environment variables set
-    - mpich
+    # - mpich
     - pytest
   imports:
     - LFPy
