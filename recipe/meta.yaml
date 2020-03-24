@@ -14,7 +14,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/l/lfpy/{{name}}-{{ version }}.tar.gz
-  sha256: a66c1d62581348bc0a0d96abf805611fca4c7779ac92b421165d9f666e8cc26c
+  sha256: fbb9424b527c505e27a6f482c06b898d889d636d0e2c5d1cf6c359073a3bf815
 
 build:
   number: {{ build }}
