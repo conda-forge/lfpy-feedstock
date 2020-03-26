@@ -2,12 +2,6 @@
 {% set version = "2.0.4" %}
 {% set build = 0 %}
 
-## mpi must be defined for conda-smithy lint
-# {% if not mpi %}
-## conda-smithy misbehaves if mpi is unset
-# {% set mpi = 'mpich' %}
-# {% endif %}
-
 package:
   name: {{ name | lower }}
   version: {{ version }}
@@ -18,7 +12,7 @@ source:
 
 build:
   number: {{ build }}
-  {% set mpi_prefix = "mpi" %} # use mpi_*` neuron variant
+  {% set mpi_prefix = "mpi_" + mpi %} # use mpi_*` neuron variant
   string: "{{ mpi_prefix }}_py{{ py }}h{{ PKG_HASH }}_{{ build }}"
   script: "{{PYTHON}} -m pip install . --no-deps -vv"
   skip: true  # [win]
@@ -32,6 +26,7 @@ requirements:
     - cython >=0.20
     - numpy >=1.8
     - neuron
+    - {{ mpi }}
   run:
     - python
     - setuptools
