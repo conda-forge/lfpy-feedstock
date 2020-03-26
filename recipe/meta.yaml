@@ -13,7 +13,7 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/l/lfpy/{{name}}-{{ version }}.tar.gz
+  url: https://pypi.io/packages/source/l/lfpy/{{ name }}-{{ version }}.tar.gz
   sha256: a66c1d62581348bc0a0d96abf805611fca4c7779ac92b421165d9f666e8cc26c
 
 build:
@@ -57,7 +57,7 @@ test:
 
 about:
   home: https://github.com/LFPy/LFPy
-  license: GPL-3.0
+  license: GPL-3.0-only
   license_family: GPL
   license_file: LICENSE
   summary: 'LFPy is a Python-module for calculation of extracellular potentials from multicompartment neuron models'
