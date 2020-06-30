@@ -44,7 +44,7 @@ requirements:
 
 test:
   requires:
-    - openssh # [mpi == "openmpi"]
+    - openssh  # [mpi == "openmpi"]
     - pytest
   imports:
     - LFPy
