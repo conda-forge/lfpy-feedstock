@@ -1,4 +1,4 @@
-About lfpy
+About LFPy
 ==========
 
 Home: https://github.com/LFPy/LFPy
@@ -116,7 +116,7 @@ Current release info
 | --- | --- | --- | --- |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-lfpy-green.svg)](https://anaconda.org/conda-forge/lfpy) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/lfpy.svg)](https://anaconda.org/conda-forge/lfpy) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/lfpy.svg)](https://anaconda.org/conda-forge/lfpy) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/lfpy.svg)](https://anaconda.org/conda-forge/lfpy) |
 
-Installing lfpy
+Installing LFPy
 ===============
 
 Installing `lfpy` from the `conda-forge` channel can be achieved by adding `conda-forge` to your channels with:
