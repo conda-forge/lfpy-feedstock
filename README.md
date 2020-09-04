@@ -1,11 +1,11 @@
-About LFPy
+About lfpy
 ==========
 
 Home: https://github.com/LFPy/LFPy
 
 Package license: GPL-3.0-only
 
-Feedstock license: BSD 3-Clause
+Feedstock license: BSD-3-Clause
 
 Summary: LFPy is a Python-module for calculation of extracellular potentials from multicompartment neuron models
 
@@ -34,77 +34,93 @@ Current build status
         <table>
           <thead><tr><th>Variant</th><th>Status</th></tr></thead>
           <tbody><tr>
-              <td>linux_mpimpichpython3.6.____cpython</td>
+              <td>linux_64_mpimpichpython3.6.____cpython</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=6817&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/lfpy-feedstock?branchName=master&jobName=linux&configuration=linux_mpimpichpython3.6.____cpython" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/lfpy-feedstock?branchName=master&jobName=linux&configuration=linux_64_mpimpichpython3.6.____cpython" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>linux_mpimpichpython3.7.____cpython</td>
+              <td>linux_64_mpimpichpython3.7.____cpython</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=6817&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/lfpy-feedstock?branchName=master&jobName=linux&configuration=linux_mpimpichpython3.7.____cpython" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/lfpy-feedstock?branchName=master&jobName=linux&configuration=linux_64_mpimpichpython3.7.____cpython" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>linux_mpiopenmpipython3.6.____cpython</td>
+              <td>linux_64_mpimpichpython3.8.____cpython</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=6817&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/lfpy-feedstock?branchName=master&jobName=linux&configuration=linux_mpiopenmpipython3.6.____cpython" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/lfpy-feedstock?branchName=master&jobName=linux&configuration=linux_64_mpimpichpython3.8.____cpython" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>linux_mpiopenmpipython3.7.____cpython</td>
+              <td>linux_64_mpiopenmpipython3.6.____cpython</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=6817&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/lfpy-feedstock?branchName=master&jobName=linux&configuration=linux_mpiopenmpipython3.7.____cpython" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/lfpy-feedstock?branchName=master&jobName=linux&configuration=linux_64_mpiopenmpipython3.6.____cpython" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>osx_mpimpichpython3.6.____cpython</td>
+              <td>linux_64_mpiopenmpipython3.7.____cpython</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=6817&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/lfpy-feedstock?branchName=master&jobName=osx&configuration=osx_mpimpichpython3.6.____cpython" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/lfpy-feedstock?branchName=master&jobName=linux&configuration=linux_64_mpiopenmpipython3.7.____cpython" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>osx_mpimpichpython3.7.____cpython</td>
+              <td>linux_64_mpiopenmpipython3.8.____cpython</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=6817&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/lfpy-feedstock?branchName=master&jobName=osx&configuration=osx_mpimpichpython3.7.____cpython" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/lfpy-feedstock?branchName=master&jobName=linux&configuration=linux_64_mpiopenmpipython3.8.____cpython" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>osx_mpiopenmpipython3.6.____cpython</td>
+              <td>osx_64_mpimpichpython3.6.____cpython</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=6817&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/lfpy-feedstock?branchName=master&jobName=osx&configuration=osx_mpiopenmpipython3.6.____cpython" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/lfpy-feedstock?branchName=master&jobName=osx&configuration=osx_64_mpimpichpython3.6.____cpython" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>osx_mpiopenmpipython3.7.____cpython</td>
+              <td>osx_64_mpimpichpython3.7.____cpython</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=6817&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/lfpy-feedstock?branchName=master&jobName=osx&configuration=osx_mpiopenmpipython3.7.____cpython" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/lfpy-feedstock?branchName=master&jobName=osx&configuration=osx_64_mpimpichpython3.7.____cpython" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>osx_64_mpimpichpython3.8.____cpython</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=6817&branchName=master">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/lfpy-feedstock?branchName=master&jobName=osx&configuration=osx_64_mpimpichpython3.8.____cpython" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>osx_64_mpiopenmpipython3.6.____cpython</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=6817&branchName=master">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/lfpy-feedstock?branchName=master&jobName=osx&configuration=osx_64_mpiopenmpipython3.6.____cpython" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>osx_64_mpiopenmpipython3.7.____cpython</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=6817&branchName=master">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/lfpy-feedstock?branchName=master&jobName=osx&configuration=osx_64_mpiopenmpipython3.7.____cpython" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>osx_64_mpiopenmpipython3.8.____cpython</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=6817&branchName=master">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/lfpy-feedstock?branchName=master&jobName=osx&configuration=osx_64_mpiopenmpipython3.8.____cpython" alt="variant">
                 </a>
               </td>
             </tr>
           </tbody>
         </table>
       </details>
-    </td>
-  </tr>
-  <tr>
-    <td>Windows</td>
-    <td>
-      <img src="https://img.shields.io/badge/Windows-disabled-lightgrey.svg" alt="Windows disabled">
-    </td>
-  </tr>
-  <tr>
-    <td>Linux_ppc64le</td>
-    <td>
-      <img src="https://img.shields.io/badge/ppc64le-disabled-lightgrey.svg" alt="ppc64le disabled">
     </td>
   </tr>
 </table>
@@ -116,7 +132,7 @@ Current release info
 | --- | --- | --- | --- |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-lfpy-green.svg)](https://anaconda.org/conda-forge/lfpy) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/lfpy.svg)](https://anaconda.org/conda-forge/lfpy) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/lfpy.svg)](https://anaconda.org/conda-forge/lfpy) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/lfpy.svg)](https://anaconda.org/conda-forge/lfpy) |
 
-Installing LFPy
+Installing lfpy
 ===============
 
 Installing `lfpy` from the `conda-forge` channel can be achieved by adding `conda-forge` to your channels with:
