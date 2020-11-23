@@ -5,9 +5,13 @@ Home: https://github.com/LFPy/LFPy
 
 Package license: GPL-3.0-only
 
-Feedstock license: BSD-3-Clause
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/lfpy-feedstock/blob/master/LICENSE.txt)
 
 Summary: LFPy is a Python-module for calculation of extracellular potentials from multicompartment neuron models
+
+Development: https://github.com/LFPy/LFPy
+
+Documentation: https://lfpy.readthedocs.io
 
 LFPy provides a set of easy-to-use Python classes for setting up your
 model, running your simulations and calculating the extracellular
