@@ -28,6 +28,7 @@ requirements:
     - neuron
     - {{ mpi }}
     - meautility >=1.4
+    - lfpykit >=0.3
   run:
     - python
     - setuptools
@@ -39,6 +40,7 @@ requirements:
     - {{ mpi }}
     - neuron >=7.6.7 {{ mpi_prefix }}_*
     - meautility >=1.4
+    - lfpykit >=0.3
     - ncurses
     - readline
 
