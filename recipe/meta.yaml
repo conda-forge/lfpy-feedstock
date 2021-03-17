@@ -38,7 +38,7 @@ requirements:
     - h5py >=2.5
     - mpi4py >=1.2
     - {{ mpi }}
-    - neuron >=7.6.7 {{ mpi_prefix }}_*
+    - {{ pin_compatible('neuron') }}  {{ mpi_prefix }}_*
     - meautility >=1.4
     - lfpykit >=0.3
     - ncurses
