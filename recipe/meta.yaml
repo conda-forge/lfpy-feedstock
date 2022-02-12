@@ -21,6 +21,7 @@ requirements:
   build:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
+    - make # [linux]
   host:
     - python
     - pip
@@ -28,7 +29,7 @@ requirements:
     - numpy >=1.8
     - neuron
     - {{ mpi }}
-    - lfpykit >=0.3
+    - lfpykit >=0.4
   run:
     - python
     - setuptools
@@ -39,7 +40,7 @@ requirements:
     - mpi4py >=1.2
     - {{ mpi }}
     - {{ pin_compatible('neuron') }}  {{ mpi_prefix }}_*
-    - lfpykit >=0.3
+    - lfpykit >=0.4
     - ncurses
     - readline
 
