@@ -1,5 +1,5 @@
 {% set name = "LFPy" %}
-{% set version = "2.2.3" %}
+{% set version = "2.2.4" %}
 {% set build = 0 %}
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/l/lfpy/{{ name }}-{{ version }}.tar.gz
-  sha256: 89e489db5df6833e9b83c12caa1457c62699e262d83c06930d661ef132195247
+  sha256: c6f844a031f62a0450fd25a77ceaa21a967d4f458ad0a2abe8041e51f9375ea5
 
 build:
   number: {{ build }}
@@ -21,6 +21,7 @@ requirements:
   build:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
+    - make  # [linux]
   host:
     - python
     - pip
@@ -28,7 +29,7 @@ requirements:
     - numpy >=1.8
     - neuron
     - {{ mpi }}
-    - lfpykit >=0.3
+    - lfpykit >=0.4
   run:
     - python
     - setuptools
@@ -39,7 +40,7 @@ requirements:
     - mpi4py >=1.2
     - {{ mpi }}
     - {{ pin_compatible('neuron') }}  {{ mpi_prefix }}_*
-    - lfpykit >=0.3
+    - lfpykit >=0.4
     - ncurses
     - readline
 
