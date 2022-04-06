@@ -37,7 +37,7 @@ requirements:
     - {{ pin_compatible('numpy') }}
     - scipy >=0.14
     - h5py >=2.5
-    - hdf5  # [linux and mpi == "openmpi"]  # workaround for https://github.com/conda-forge/h5py-feedstock/issues/103
+    - hdf5 >=1.12.1 # [linux and mpi == "openmpi"]  # workaround for https://github.com/conda-forge/h5py-feedstock/issues/103
     - mpi4py >=1.2
     - {{ mpi }}
     - {{ pin_compatible('neuron') }}  {{ mpi_prefix }}_*
