@@ -48,6 +48,7 @@ test:
   requires:
     - openssh  # [mpi == "openmpi"]
     - pytest
+    - make  # [linux]
   imports:
     - LFPy
   commands:
