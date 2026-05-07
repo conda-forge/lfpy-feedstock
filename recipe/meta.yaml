@@ -1,14 +1,14 @@
 {% set name = "LFPy" %}
-{% set version = "2.3.2" %}
-{% set build = 1 %}
+{% set version = "2.3.7" %}
+{% set build = 0 %}
 
 package:
   name: {{ name | lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/l/lfpy/lfpy-{{ version }}.tar.gz
-  sha256: b20ba696ce7c717faa8e914884e329d30bdefd948ce100d1b843908b98f19101
+  url: https://pypi.org/packages/source/l/lfpy/lfpy-{{ version }}.tar.gz
+  sha256: eb7c5ab05bcd96c93566f8302bbd15fc5e11eeecd17be21f7b93342c0772015d
 
 build:
   number: {{ build }}
