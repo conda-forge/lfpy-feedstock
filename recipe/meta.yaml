@@ -12,8 +12,6 @@ source:
 
 build:
   number: {{ build }}
-  {% set mpi_prefix = "mpi_" + mpi %} # use mpi_*` neuron variant
-  string: {{ mpi_prefix }}_py{{ py }}h{{ PKG_HASH }}_{{ build }}
   script: {{ PYTHON }} -m pip install . --no-deps -vv
   skip: true  # [win]
 
@@ -39,8 +37,8 @@ requirements:
     - h5py >=2.5
     - mpi4py >=1.2
     - {{ mpi }}
-    - {{ pin_compatible('neuron') }}  {{ mpi_prefix }}_*
-    - lfpykit >=0.4
+    - {{ pin_compatible('neuron') }}
+    - lfpykit >=0.6.2
     - ncurses
     - readline
 
