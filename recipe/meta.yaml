@@ -49,7 +49,7 @@ test:
     - openssh  # [mpi == "openmpi"]
     - pytest
     - make  # [linux]
-    - {{ compiler('cxx') }}  # [linux]
+    - {{ compiler('cxx') }}
   imports:
     - LFPy
   commands:
