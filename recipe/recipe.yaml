@@ -1,34 +1,43 @@
-{% set name = "LFPy" %}
-{% set version = "2.3.7" %}
-{% set build = 1 %}
+schema_version: 1
+
+context:
+  name: LFPy
+  version: "2.3.7"
+  build: 2
 
 package:
-  name: {{ name | lower }}
-  version: {{ version }}
+  name: ${{ name | lower }}
+  version: ${{ version }}
 
 source:
-  url: https://pypi.org/packages/source/l/lfpy/lfpy-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/l/lfpy/lfpy-${{ version }}.tar.gz
   sha256: eb7c5ab05bcd96c93566f8302bbd15fc5e11eeecd17be21f7b93342c0772015d
+  patches:
+    - 483.patch
 
 build:
-  number: {{ build }}
-  script: {{ PYTHON }} -m pip install . --no-deps --no-build-isolation -vv
-  skip: true  # [win]
+  number: ${{ build }}
+  skip: win
+  script: ${{ PYTHON }} -m pip install . --no-deps --no-build-isolation -vv
+  files:
+    exclude:
+      # avoid installing cython .c files
+      - "**/LFPy/*.c"
 
 requirements:
   build:
-    - {{ compiler('c') }}
-    - {{ stdlib("c") }}
-    - {{ compiler('cxx') }}
-    - make  # [linux]
+    - ${{ compiler('c') }}
+    - ${{ stdlib("c") }}
+    - ${{ compiler('cxx') }}
   host:
     - python
     - pip
     - cython >=0.20
     - poetry-core
+    - poetry
     - numpy
     - neuron
-    - {{ mpi }}
+    - ${{ mpi }}
     - lfpykit >=0.6.2
   run:
     - python
@@ -38,30 +47,30 @@ requirements:
     - numpy
     - h5py >=2.5
     - mpi4py >=1.2
-    - {{ mpi }}
-    - {{ pin_compatible('neuron') }}
+    - ${{ mpi }}
     - lfpykit >=0.6.2
     - ncurses
     - readline
 
-test:
-  requires:
-    - openssh  # [mpi == "openmpi"]
-    - pytest
-    - make  # [linux]
-    - {{ compiler('cxx') }}
-  imports:
-    - LFPy
-  commands:
-    - pytest -vsx --pyargs LFPy
+tests:
+  - python:
+      imports:
+        - LFPy
+      # lfpy expresses its pip dependencies incorrectly
+      pip_check: false
+  - requirements:
+      run:
+        - pytest
+        - if: linux
+          then: make
+        - ${{ compiler('cxx') }}
+    script:
+      - pytest -vsx --pyargs LFPy
 
 about:
-  home: https://github.com/LFPy/LFPy
   license: GPL-3.0-only
-  license_family: GPL
   license_file: LICENSE
   summary: LFPy is a Python-module for calculation of extracellular potentials from multicompartment neuron models
-
   description: |
     LFPy provides a set of easy-to-use Python classes for setting up your
     model, running your simulations and calculating the extracellular
@@ -69,8 +78,9 @@ about:
     working in NEURON or NeuroML2 already, it is likely that it can be adapted
     to work with LFPy.
 
-  doc_url: https://lfpy.readthedocs.io
-  dev_url: https://github.com/LFPy/LFPy
+  homepage: https://github.com/LFPy/LFPy
+  repository: https://github.com/LFPy/LFPy
+  documentation: https://lfpy.readthedocs.io
 
 extra:
   recipe-maintainers:

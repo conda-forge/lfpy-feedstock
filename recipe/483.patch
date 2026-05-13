@@ -1,0 +1,87 @@
+From aef2812b2d7a46a5238082460a0b4aa4c35e8da1 Mon Sep 17 00:00:00 2001
+From: Min RK <benjaminrk@gmail.com>
+Date: Wed, 13 May 2026 11:02:56 -0700
+Subject: [PATCH] fix building cython extension with pip install
+
+poetry backend invokes as a plain script, not build(setup_kwargs)
+---
+ build.py       | 29 +++++++++++++++++++++++------
+ pyproject.toml |  3 ++-
+ 2 files changed, 25 insertions(+), 7 deletions(-)
+
+diff --git a/build.py b/build.py
+index 18005099..7a0175c9 100644
+--- a/build.py
++++ b/build.py
+@@ -1,16 +1,19 @@
+ """Build script for Cython extensions, used by poetry's build system."""
+ 
+ import os
++import shutil
++from pathlib import Path
+ 
+ 
+-def build(setup_kwargs):
++def main():
+     """Build Cython extensions when invoked by poetry."""
+     try:
+         import numpy as np
+         from Cython.Build import cythonize
+         from Cython.Distutils import build_ext
+-        from setuptools import Extension
+-
++        from setuptools import Distribution, Extension
++        
++        print("Building Cython extensions")
+         ext_modules = [
+             Extension(
+                 'LFPy.run_simulation',
+@@ -23,10 +26,24 @@ def build(setup_kwargs):
+                 include_dirs=[np.get_include()],
+             ),
+         ]
+-        setup_kwargs.update({
+-            'ext_modules': cythonize(ext_modules),
+-            'cmdclass': {'build_ext': build_ext},
++        distribution = Distribution({
++            "name": "LFPy",
++            "ext_modules": cythonize(ext_modules),
+         })
++
++        cmd = build_ext(distribution)
++        cmd.ensure_finalized()
++        cmd.run()
++
++        for output in cmd.get_outputs():
++            output = Path(output)
++            relative_extension = output.relative_to(cmd.build_lib)
++            print(f"Copying {output} -> {relative_extension}")
++            shutil.copyfile(output, relative_extension)
+     except ImportError:
+         print("'Cython' or 'numpy' not found – Cython extensions will not be "
+               "compiled and simulations in LFPy may run slower.")
++
++
++if __name__ == "__main__":
++    main()
+diff --git a/pyproject.toml b/pyproject.toml
+index 22adcc9e..4e45e205 100644
+--- a/pyproject.toml
++++ b/pyproject.toml
+@@ -18,6 +18,7 @@ include = [
+     "LFPy/test/*.py",
+     "LFPy/test/sinsyn.mod",
+     "LFPy/test/expsyni.mod",
++    { path = "LFPy/**/*.so", format = "wheel" }
+ ]
+ classifiers = [
+     "License :: OSI Approved :: GNU General Public License (GPL)",
+@@ -40,7 +41,7 @@ classifiers = [
+ 
+ [tool.poetry.build]
+ script = "build.py"
+-generate-setup-file = true
++generate-setup-file = false
+ 
+ [tool.poetry.dependencies]
+ python = "^3.10"
