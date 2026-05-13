@@ -12,7 +12,7 @@ source:
 
 build:
   number: {{ build }}
-  script: {{ PYTHON }} -m pip install . --no-deps -vv
+  script: {{ PYTHON }} -m pip install . --no-deps --no-build-isolation -vv
   skip: true  # [win]
 
 requirements:
@@ -25,15 +25,17 @@ requirements:
     - python
     - pip
     - cython >=0.20
+    - poetry-core
     - numpy
     - neuron
     - {{ mpi }}
-    - lfpykit >=0.4
+    - lfpykit >=0.6.2
   run:
     - python
-    - setuptools
+    - poetry-core
     - cython >=0.20
     - scipy >=0.14
+    - numpy >=2.0
     - h5py >=2.5
     - mpi4py >=1.2
     - {{ mpi }}
@@ -50,7 +52,7 @@ test:
   imports:
     - LFPy
   commands:
-    - py.test -vsx --pyargs LFPy
+    - pytest -vsx --pyargs LFPy
 
 about:
   home: https://github.com/LFPy/LFPy
