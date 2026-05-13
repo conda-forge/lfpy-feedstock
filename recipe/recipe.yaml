@@ -56,7 +56,8 @@ tests:
   - python:
       imports:
         - LFPy
-      # lfpy expresses its pip dependencies incorrectly
+      # pip check fails because of neuron not installing
+      # correct metadata
       pip_check: false
   - requirements:
       run:

@@ -11,14 +11,13 @@ Summary: LFPy is a Python-module for calculation of extracellular potentials fro
 
 Development: https://github.com/LFPy/LFPy
 
-Documentation: https://lfpy.readthedocs.io
+Documentation: https://lfpy.readthedocs.io/
 
 LFPy provides a set of easy-to-use Python classes for setting up your
 model, running your simulations and calculating the extracellular
 potentials arising from activity in your model neuron. If you have a model
 working in NEURON or NeuroML2 already, it is likely that it can be adapted
 to work with LFPy.
-
 
 Current build status
 ====================
