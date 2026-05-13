@@ -1,20 +1,18 @@
 {% set name = "LFPy" %}
-{% set version = "2.3.2" %}
-{% set build = 1 %}
+{% set version = "2.3.7" %}
+{% set build = 0 %}
 
 package:
   name: {{ name | lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/l/lfpy/lfpy-{{ version }}.tar.gz
-  sha256: b20ba696ce7c717faa8e914884e329d30bdefd948ce100d1b843908b98f19101
+  url: https://pypi.org/packages/source/l/lfpy/lfpy-{{ version }}.tar.gz
+  sha256: eb7c5ab05bcd96c93566f8302bbd15fc5e11eeecd17be21f7b93342c0772015d
 
 build:
   number: {{ build }}
-  {% set mpi_prefix = "mpi_" + mpi %} # use mpi_*` neuron variant
-  string: {{ mpi_prefix }}_py{{ py }}h{{ PKG_HASH }}_{{ build }}
-  script: {{ PYTHON }} -m pip install . --no-deps -vv
+  script: {{ PYTHON }} -m pip install . --no-deps --no-build-isolation -vv
   skip: true  # [win]
 
 requirements:
@@ -27,20 +25,22 @@ requirements:
     - python
     - pip
     - cython >=0.20
+    - poetry-core
     - numpy
     - neuron
     - {{ mpi }}
-    - lfpykit >=0.4
+    - lfpykit >=0.6.2
   run:
     - python
-    - setuptools
+    - poetry-core
     - cython >=0.20
     - scipy >=0.14
+    - numpy
     - h5py >=2.5
     - mpi4py >=1.2
     - {{ mpi }}
-    - {{ pin_compatible('neuron') }}  {{ mpi_prefix }}_*
-    - lfpykit >=0.4
+    - {{ pin_compatible('neuron') }}
+    - lfpykit >=0.6.2
     - ncurses
     - readline
 
@@ -49,10 +49,11 @@ test:
     - openssh  # [mpi == "openmpi"]
     - pytest
     - make  # [linux]
+    - {{ compiler('cxx') }}
   imports:
     - LFPy
   commands:
-    - py.test -vsx --pyargs LFPy
+    - pytest -vsx --pyargs LFPy
 
 about:
   home: https://github.com/LFPy/LFPy
