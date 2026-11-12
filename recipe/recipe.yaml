@@ -2,8 +2,8 @@ schema_version: 1
 
 context:
   name: LFPy
-  version: "2.3.7"
-  build: 3
+  version: "2.3.9"
+  build: 0
 
 package:
   name: ${{ name | lower }}
@@ -11,7 +11,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/l/lfpy/lfpy-${{ version }}.tar.gz
-  sha256: eb7c5ab05bcd96c93566f8302bbd15fc5e11eeecd17be21f7b93342c0772015d
+  sha256: b81e429f396abeb8c6200dd80f944e74969689a548ddb97a7879ad3d6a335557
   patches:
     - 483.patch
 
